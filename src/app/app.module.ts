@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { ListEmployeesComponent } from './employees/list-employees.component';
 import { CreateEmployeeComponent } from './employees/create-employee.component';
+import { EmployeeService } from './employees/employee.service'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validator.directive';
@@ -21,7 +22,7 @@ import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validat
     AppComponent,
     ListEmployeesComponent,
     CreateEmployeeComponent,
-    ConfirmEqualValidatorDirective
+    ConfirmEqualValidatorDirective 
   ],
   imports: [
     BrowserModule,
@@ -30,7 +31,7 @@ import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validat
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
