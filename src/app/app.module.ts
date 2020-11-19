@@ -9,7 +9,7 @@ import { CreateEmployeeComponent } from './employees/create-employee.component';
 import { EmployeeService } from './employees/employee.service'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validator.directive';
+//import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validator.directive';
 
   const appRoutes : Routes = [
     {path: 'list', component: ListEmployeesComponent},
@@ -21,8 +21,8 @@ import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validat
   declarations: [
     AppComponent,
     ListEmployeesComponent,
-    CreateEmployeeComponent,
-    ConfirmEqualValidatorDirective 
+    CreateEmployeeComponent
+    //ConfirmEqualValidatorDirective 
   ],
   imports: [
     BrowserModule,
