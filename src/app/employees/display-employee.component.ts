@@ -7,13 +7,27 @@ import { Employee } from '../models/employee.model';
   styleUrls: ['./display-employee.component.css']
 })
 export class DisplayEmployeeComponent implements OnInit{
+  private _employeeId: number;
+
   private _employee: Employee;
+  
   @Input() 
   set employee(val :Employee){
     console.log('Previous Employee:' +(this._employee ? this._employee.name: 'NULL'));
     console.log('Current: ' + val.name);
     this._employee = val;
   };
+
+  @Input()
+  set employeeId(val : number){
+    console.log('employeeId changed from:' 
+    +JSON.stringify(this._employeeId) + 'to' + JSON.stringify(val));
+    this._employeeId = val;
+  }
+
+  get employeeId(): number{
+    return this._employeeId;
+  }
 
   get employee(): Employee{
     return this._employee;
@@ -24,12 +38,14 @@ export class DisplayEmployeeComponent implements OnInit{
   }
 
   // ngOnChanges(changes: SimpleChanges){
-  //   console.log(changes);
-  //   const previousEmployee = <Employee>changes.employee.previousValue;
-  //   const currentEmployee = <Employee>changes.employee.currentValue;
+  //   for (const propName of Object.keys(changes)){
+  //     const change = changes[propName];
+  //     const from = JSON.stringify(change.previousValue);
+  //     const to = JSON.stringify(change.currentValue);
 
-  //   console.log('Previous : ' + (previousEmployee ? previousEmployee.name : 'NULL'));
-  //   console.log('Current' + currentEmployee.name);
+  //     console.log(propName + 'changed from ' + from + 'to' + to);
+
+  //   }
   // }
 
 }
