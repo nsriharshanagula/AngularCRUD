@@ -10,11 +10,15 @@ import { EmployeeService } from './employees/employee.service'
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DisplayEmployeeComponent } from './employees/display-employee.component';
-//import { ConfirmEqualValidatorDirective } from './shared/confirmed-equal-validator.directive';
+import { CreateEmployeeCanDeavtivateGaurdService } from './employees/create-employee-can-deactivate-gaurd.service';
 
   const appRoutes : Routes = [
     {path: 'list', component: ListEmployeesComponent},
-    {path: 'create', component: CreateEmployeeComponent},
+    {
+      path: 'create', 
+      component: CreateEmployeeComponent,
+      canDeactivate: [CreateEmployeeCanDeavtivateGaurdService]
+    },
     {path: '', redirectTo: '/list', pathMatch: 'full'}
   ];
 
@@ -33,7 +37,7 @@ import { DisplayEmployeeComponent } from './employees/display-employee.component
     BsDatepickerModule.forRoot(),
     BrowserAnimationsModule
   ],
-  providers: [EmployeeService],
+  providers: [EmployeeService, CreateEmployeeCanDeavtivateGaurdService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
